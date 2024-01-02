@@ -1,32 +1,26 @@
-#include <stdlib.h>
-#include <string.h>
-#include <stdio.h>
 #include "lists.h"
+
 /**
- * check_cycle - check list
- * @list: list
- * Return: 1 or  0.
+ * check_cycle - fdgfd
+ * @list: dfgf
+ *
+ * Return: fdfd
  */
 int check_cycle(listint_t *list)
 {
-	listint_t *i;
-	listint_t *j;
+	listint_t *slow = list;
+	listint_t *fast = list;
 
-	i = list;
-	j = list;
-	if (list == NULL)
-	{
+	if (!list)
 		return (0);
-	}
-	j = j->next;
-	while (j != NULL && j->next != NULL && i != NULL)
+
+	while (slow && fast && fast->next)
 	{
-		if (i == j)
-		{
+		slow = slow->next;
+		fast = fast->next->next;
+		if (slow == fast)
 			return (1);
-		}
-		i = i->next;
-		j = j->next->next;
 	}
+
 	return (0);
 }
